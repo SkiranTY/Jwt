@@ -1,14 +1,20 @@
 package com.tyss.dto;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 @Table
 public class User {
+	
+	
 	@Id
 	@GeneratedValue
 	@Column 
@@ -23,6 +29,7 @@ public class User {
 	private String password;
 	@Column
 	private String role;
+	
 	public int getId() {
 		return id;
 	}
@@ -58,6 +65,10 @@ public class User {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return null;
 	}
 	
 	

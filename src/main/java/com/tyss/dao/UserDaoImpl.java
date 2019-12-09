@@ -34,11 +34,11 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 
 		}
-		User u = manager.find(User.class, user.getId());
-		if (u == null) {
+		User user1 = manager.find(User.class, user.getId());
+		if (user1 == null) {
 			return null;
 		}
-		return u;
+		return user;
 	}
 
 	@Override
@@ -60,9 +60,9 @@ public class UserDaoImpl implements UserDao {
 	public boolean changePassword(String email, String password) {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
-		String login = "from User where email=:email";
+		String chgepwd = "from User where email=:email";
 
-		Query query = manager.createQuery(login);
+		Query query = manager.createQuery(chgepwd);
 		query.setParameter("email", email);
 
 		User user = (User) query.getSingleResult();

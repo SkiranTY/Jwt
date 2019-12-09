@@ -1,6 +1,9 @@
 package com.tyss.services;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.naming.NameNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,5 +58,7 @@ public class UserServiceImpl implements UserService {
 		
 		return dao.searchUser(name);
 	}
+
+	
 
 }
